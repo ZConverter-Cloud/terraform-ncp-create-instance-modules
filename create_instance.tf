@@ -1,5 +1,5 @@
 resource "ncloud_init_script" "init" {
-  count = fileexists(var.user_data_file_path) != false ? 1 : 0
+  count = fileexists(var.user_data_file_path) != false && var.user_data_file_path != null ? 1 : 0
   content = file(var.user_data_file_path)
 }
 
@@ -18,5 +18,5 @@ resource "ncloud_server" "server" {
   }
 
   login_key_name = var.login_key_name
-  init_script_no = fileexists(var.user_data_file_path) != false ? ncloud_init_script.init[0].id : null
+  init_script_no = fileexists(var.user_data_file_path) != false && var.user_data_file_path != null ? ncloud_init_script.init[0].id : null
 }
