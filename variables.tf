@@ -8,11 +8,6 @@ terraform {
 }
 
 locals {
-  server_image = [
-    for data in data.ncloud_server_images.server_image.server_images :
-    data
-    if length(regexall("^${local.OS_product["${var.support_vpc == false ? "classic" : "vpc"}"][var.OS_name][var.OS_version]}$", data.product_name)) > 0
-  ]
   OS_product = {
     classic = {
       centos = {
