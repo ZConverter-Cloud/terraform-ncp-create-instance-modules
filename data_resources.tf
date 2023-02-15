@@ -2,7 +2,12 @@ data "ncloud_zones" "zones" {
   region = var.region
 }
 
-data "ncloud_server_images" "server_image" {}
+data "ncloud_server_images" "server_image" {
+  filter {
+    name = "product_name"
+    values = ["${local.OS_product["${var.support_vpc == false ? "classic" : "vpc"}"][var.OS_name][var.OS_version]}"]
+  }
+}
 
 data "ncloud_server_products" "product" {
   server_image_product_code = local.server_image[0].id
