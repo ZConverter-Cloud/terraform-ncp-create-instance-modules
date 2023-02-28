@@ -1,12 +1,12 @@
 resource "ncloud_init_script" "init" {
   count = fileexists(var.user_data_file_path) != false && var.user_data_file_path != null ? 1 : 0
-  content = file(var.user_data_file_path)
+  content = replace(file(var.user_data_file_path), "/[^[:alnum:][:space:][:punct:]]+/", "")#file(var.user_data_file_path)
 }
 
 resource "ncloud_server" "server" {
   name                      = var.vm_name
   subnet_no                 = var.subnet_no
-  server_image_product_code = data.ncloud_server_images.server_image.server_images[0].id
+  server_image_product_code = local.server_image[0].id
   server_product_code       = data.ncloud_server_products.product.server_products[0].id
 
   dynamic "network_interface" {
