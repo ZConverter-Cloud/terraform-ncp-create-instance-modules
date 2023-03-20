@@ -9,35 +9,18 @@ terraform {
 
 locals {
   OS_product = {
-    classic = {
-      centos = {
-        "7.2" : "centos-7.2-64"
-        "7.3" : "centos-7.3-64"
-        "7.8" : "centos-7.8-64"
-      }
-      ubuntu = {
-        "16.04" : "ubuntu-16.04-64-server"
-        "18.04" : "ubuntu-18.04"
-      }
-      windows = {
-        "2012" : "win-2012-64-R2-en"
-        "2016" : "Windows Server 2016 (64-bit) English Edition"
-      }
+    centos = {
+      "7.3" : "centos-7.3-64"
+      "7.8" : "CentOS 7.8 (64-bit)"
     }
-    vpc = {
-      centos = {
-        "7.3" : "centos-7.3-64"
-        "7.8" : "CentOS 7.8 (64-bit)"
-      }
-      ubuntu = {
-        "16.04" : "ubuntu-16.04-64-server"
-        "18.04" : "ubuntu-18.04"
-        "20.04" : "ubuntu-20.04"
-      }
-      windows = {
-        "2016" : "Windows Server 2016 (64-bit) English Edition"
-        "2019" : "Windows Server 2019 (64-bit) English Edition"
-      }
+    ubuntu = {
+      "16.04" : "ubuntu-16.04-64-server"
+      "18.04" : "ubuntu-18.04"
+      "20.04" : "ubuntu-20.04"
+    }
+    windows = {
+      "2016" : "Windows Server 2016 (64-bit) English Edition"
+      "2019" : "Windows Server 2019 (64-bit) English Edition"
     }
   }
 }
