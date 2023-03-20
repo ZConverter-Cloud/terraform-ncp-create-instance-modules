@@ -6,7 +6,7 @@ resource "ncloud_init_script" "init" {
 resource "ncloud_server" "server" {
   name                      = var.vm_name
   subnet_no                 = var.subnet_no
-  server_image_product_code = local.server_image[0].id
+  server_image_product_code = data.ncloud_server_images.server_image.ids[0]
   server_product_code       = data.ncloud_server_products.product.server_products[0].id
 
   dynamic "network_interface" {
