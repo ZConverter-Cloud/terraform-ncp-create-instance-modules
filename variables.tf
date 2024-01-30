@@ -14,7 +14,6 @@ locals {
       "7.8" : "CentOS 7.8 (64-bit)"
     }
     ubuntu = {
-      "16.04" : "ubuntu-16.04-64-server"
       "18.04" : "ubuntu-18.04"
       "20.04" : "ubuntu-20.04"
     }
