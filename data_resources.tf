@@ -4,7 +4,7 @@ data "ncloud_zones" "zones" {
 
 data "ncloud_server_images" "server_image" {
   filter {
-    name = "product_name"
+    name   = "product_name"
     values = [local.OS_product[var.OS_name][var.OS_version]]
   }
 }
