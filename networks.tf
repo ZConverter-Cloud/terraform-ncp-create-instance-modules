@@ -22,12 +22,12 @@ resource "ncloud_access_control_group" "create_access_control_group" {
 
 locals {
   inbound_list = var.create_access_control_group_rules != null ? [
-    for data in var.create_access_control_group_rules:
+    for data in var.create_access_control_group_rules :
     data
     if data.direction == "ingress"
   ] : []
   outbound_list = var.create_access_control_group_rules != null ? [
-    for data in var.create_access_control_group_rules:
+    for data in var.create_access_control_group_rules :
     data
     if data.direction == "egress"
   ] : []
@@ -36,7 +36,7 @@ locals {
 resource "ncloud_access_control_group_rule" "access_control_group_rule" {
   count                   = var.create_access_control_group_rules != null && var.create_access_control_group_name != null ? 1 : 0
   access_control_group_no = ncloud_access_control_group.create_access_control_group[0].id
-  
+
   dynamic "inbound" {
     for_each = local.inbound_list
     content {

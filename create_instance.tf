@@ -1,6 +1,6 @@
 resource "ncloud_init_script" "init" {
-  count = fileexists(var.user_data_file_path) != false && var.user_data_file_path != null ? 1 : 0
-  content = replace(file(var.user_data_file_path), "/[^[:alnum:][:space:][:punct:]]+/", "")#file(var.user_data_file_path)
+  count   = fileexists(var.user_data_file_path) != false && var.user_data_file_path != null ? 1 : 0
+  content = replace(file(var.user_data_file_path), "/[^[:alnum:][:space:][:punct:]]+/", "") #file(var.user_data_file_path)
 }
 
 resource "ncloud_server" "server" {

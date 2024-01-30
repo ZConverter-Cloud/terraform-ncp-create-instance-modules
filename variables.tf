@@ -14,7 +14,6 @@ locals {
       "7.8" : "CentOS 7.8 (64-bit)"
     }
     ubuntu = {
-      "16.04" : "ubuntu-16.04-64-server"
       "18.04" : "ubuntu-18.04"
       "20.04" : "ubuntu-20.04"
     }
@@ -27,11 +26,6 @@ locals {
 
 variable "region" {
   type = string
-}
-
-variable "support_vpc" {
-  type    = bool
-  default = true
 }
 
 variable "vm_name" {
@@ -67,13 +61,13 @@ variable "create_access_control_group_name" {
 }
 
 variable "create_access_control_group_rules" {
-  type = list(object({
-    direction        = optional(string, null)
-    protocol         = optional(string, null)
-    port_range_min   = optional(string, null)
-    port_range_max   = optional(string, null)
-    remote_ip_prefix = optional(string, null)
-  }))
+  type = optional(list(object({
+    direction        = string
+    protocol         = string
+    port_range_min   = string
+    port_range_max   = string
+    remote_ip_prefix = string
+  })),[])
   default = null
 }
 
