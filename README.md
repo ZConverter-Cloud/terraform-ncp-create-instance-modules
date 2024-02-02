@@ -10,7 +10,7 @@
 
 ## Before You Begin
 To successfully perform this tutorial, you must have the following:
-   * You need to install [git](https://git-scm.com/downloads) in advance to use it.
+   * You need to install [git](https://git-scm.com/downloads) in advance to use it. - **Reboot Required**
    * Get authentication key information for NCP. [Create and query authentication keys](https://api.ncloud-docs.com/docs/common-ncpapi#1-%EC%9D%B8%EC%A6%9D%ED%82%A4-%EC%83%9D%EC%84%B1)
 
 ## Prepare
